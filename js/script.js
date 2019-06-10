@@ -36,17 +36,17 @@ let quotes = [
     year: 1924
   }
 ]
-var viewedQuotes = [];                                              // array for qoutes used
+var viewedQuotes = [];                                                       // array for qoutes used
 
 /* function to randomize Qoutes ( after building randomizing function I Found info on not repeating in the forums
    at https://teamtreehouse.com/community/random-quote-generator-not-returning-duplicate-quote).*/
 
 function getRandomQuote() {
-  if (quotes.length == 0)                                       // this conditional statement refills the Quotes array
-    quotes = viewedQuotes.splice(0, viewedQuotes.length);       //.splice to empty viewedQoutes
-  var y = Math.floor(Math.random() * quotes.length);            //  the random number expression
-  var splicedQuote = quotes.splice(y, 1)[0];                    // .splice to remove from main list
-  viewedQuotes.push(splicedQuote);                              // .push used to put qoute into the viewedQoute array
+  if (quotes.length == 0)                                                   // this conditional statement refills the Quotes array
+    quotes = viewedQuotes.splice(0, viewedQuotes.length);                  //.splice to empty viewedQoutes
+  var y = Math.floor(Math.random() * quotes.length);                       //  the random number expression
+  var splicedQuote = quotes.splice(y, 1)[0];                              // .splice to remove from main list
+  viewedQuotes.push(splicedQuote);                                        // .push used to put qoute into the viewedQoute array
   return splicedQuote;                                          
 }
 
@@ -61,15 +61,16 @@ function printQuote(){
    string += '<p class="source">source: ' + z.source;
     if (z.citation){
   string +='<span class="citation">Citation: ' + z.citation + '</span>';
-} else {}
+}
     if (z.year){
       string += '<span class="year">Year: ' + z.year + '</span>'};
     string += '</p>';
-  document.getElementById("quote-box").innerHTML = string;                  // Links HTML ID and string
-  ranRGB();                                                                //nested randomRGB function, so button would change color also
+  document.getElementById("quote-box").innerHTML = string;                    // Links HTML ID and string
+  ranRGB();                                            //nested randomRGB function, so button would change color also
 }
 
-setInterval(printQuote, 8000);                                                //setInterval(function, time)
+setInterval(printQuote, 8000);                                      //setInterval(function, time of 8 seconds)
+
 
 
 
@@ -82,14 +83,7 @@ let b = Math.floor(Math.random() * 256);
   document.body.style.backgroundColor = bgColor;                              // attaches rgb color to the body element
   console.log(bgColor);
 } 
-                                                  //setInterval(function, time)
 
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+document.getElementById('loadQuote').addEventListener("click", printQuote, false)  //Button on page controls qoute and RGB colors random on each click
