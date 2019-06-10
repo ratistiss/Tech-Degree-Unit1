@@ -57,14 +57,16 @@ function getRandomQuote() {
 function printQuote(){
   let z = getRandomQuote();                                                 //varible to run function
  let string = '';                                                           // variable for html string
-  string += '<p class="quote">Quote: ' + z.quote + '</p>';
+  string += '<p class="quote">Quote: ' + z.quote + '</p>';                  //Start of string Concatenation
    string += '<p class="source">source: ' + z.source;
     if (z.citation){
-  string +='<span class="citation">Citation: ' + z.citation + '</span>'};
+  string +='<span class="citation">Citation: ' + z.citation + '</span>';
+} else {}
     if (z.year){
       string += '<span class="year">Year: ' + z.year + '</span>'};
     string += '</p>';
-  document.getElementById("quote-box").innerHTML = string;                    // Links HTML ID and string
+  document.getElementById("quote-box").innerHTML = string;                  // Links HTML ID and string
+  ranRGB();                                                                //nested randomRGB function, so button would change color also
 }
 
 setInterval(printQuote, 8000);                                                //setInterval(function, time)
@@ -80,9 +82,7 @@ let b = Math.floor(Math.random() * 256);
   document.body.style.backgroundColor = bgColor;                              // attaches rgb color to the body element
   console.log(bgColor);
 } 
-ranRGB();
-
-setInterval(ranRGB, 8000);                                                     //setInterval(function, time)
+                                                  //setInterval(function, time)
 
 /***
   When the "Show another quote" button is clicked, the event listener 
