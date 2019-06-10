@@ -36,7 +36,7 @@ let quotes = [
     year: 1924
   }
 ]
-var viewedQuotes = [];
+var viewedQuotes = [];                                              // array for qoutes used
 
 /* function to randomize Qoutes ( after building randomizing function I Found info on not repeating in the forums
    at https://teamtreehouse.com/community/random-quote-generator-not-returning-duplicate-quote).*/
@@ -55,8 +55,8 @@ function getRandomQuote() {
 // print function below
 
 function printQuote(){
-  let z = getRandomQuote();
- let string = '';
+  let z = getRandomQuote();                                                 //varible to run function
+ let string = '';                                                           // variable for html string
   string += '<p class="quote">Quote: ' + z.quote + '</p>';
    string += '<p class="source">source: ' + z.source;
     if (z.citation){
@@ -64,25 +64,25 @@ function printQuote(){
     if (z.year){
       string += '<span class="year">Year: ' + z.year + '</span>'};
     string += '</p>';
-  document.getElementById("quote-box").innerHTML = string;
+  document.getElementById("quote-box").innerHTML = string;                    // Links HTML ID and string
 }
 
-setInterval(printQuote, 8000);
+setInterval(printQuote, 8000);                                                //setInterval(function, time)
 
 
 
 // random color function
-function ranRGB(){
-let r = Math.floor(Math.random() * 256);
+function ranRGB(){                                                             
+let r = Math.floor(Math.random() * 256);                                      //for randomized RGB values
 let g = Math.floor(Math.random() * 256);
 let b = Math.floor(Math.random() * 256);
-  var bgColor = "rgb(" + r + "," + b + "," + g + ")";
-  document.body.style.backgroundColor = bgColor;
+  var bgColor = "rgb(" + r + "," + b + "," + g + ")";                          // variables Concatenated
+  document.body.style.backgroundColor = bgColor;                              // attaches rgb color to the body element
   console.log(bgColor);
 } 
 ranRGB();
 
-setInterval(ranRGB, 8000);
+setInterval(ranRGB, 8000);                                                     //setInterval(function, time)
 
 /***
   When the "Show another quote" button is clicked, the event listener 
