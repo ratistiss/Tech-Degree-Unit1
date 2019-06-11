@@ -65,11 +65,13 @@ function printQuote(){
     if (z.year){
       string += '<span class="year">Year: ' + z.year + '</span>'};
     string += '</p>';
-  document.getElementById("quote-box").innerHTML = string;                    // Links HTML ID and string
-  ranRGB();                                            //nested randomRGB function, so button would change color also
+  document.getElementById("quote-box").innerHTML = string;                                // Links HTML ID and string
+  ranRGB();                                                                               //nested randomRGB function, so button would change color also
+  clearInterval(window.timer);                                                            // stops the interval that was started globally   
+  window.timer = setInterval(printQuote, 8000);                                           //restarts the setInterval through the function
 }
 
-setInterval(printQuote, 8000);                                      //setInterval(function, time of 8 seconds)
+ window.timer =setInterval(printQuote, 8000);                                      //setInterval(function, time of 8 seconds)
 
 
 
