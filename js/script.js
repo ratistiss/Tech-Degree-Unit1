@@ -55,15 +55,15 @@ function getRandomQuote() {
 // print function below
 
 function printQuote(){
-  let z = getRandomQuote();                                                 //varible to run function
+ let quotePicked = getRandomQuote();                                                 //varible to run function
  let string = '';                                                           // variable for html string
-  string += '<p class="quote">Quote: ' + z.quote + '</p>';                  //Start of string Concatenation
-   string += '<p class="source">source: ' + z.source;
-    if (z.citation){
-  string +='<span class="citation">Citation: ' + z.citation + '</span>';
+  string += '<p class="quote">Quote: ' + quotePicked.quote + '</p>';                  //Start of string Concatenation
+  string += '<p class="source">source: ' + quotePicked.source;
+  if (quotePicked.citation){
+      string += '<span class="citation">Citation: ' + quotePicked.citation + '</span>';
 }
-    if (z.year){
-      string += '<span class="year">Year: ' + z.year + '</span>'};
+  if (quotePicked.year){
+      string += '<span class="year">Year: ' + quotePicked.year + '</span>'};
     string += '</p>';
   document.getElementById("quote-box").innerHTML = string;                                // Links HTML ID and string
   ranRGB();                                                                               //nested randomRGB function, so button would change color also
@@ -78,9 +78,9 @@ function printQuote(){
 
 // random color function
 function ranRGB(){                                                             
-let r = Math.floor(Math.random() * 256);                                      //for randomized RGB values
-let g = Math.floor(Math.random() * 256);
-let b = Math.floor(Math.random() * 256);
+let r = Math.floor(Math.random() * 190);                                      //for randomized RGB values, changed random number so it did not go to a light color that conflicted with the white font
+let g = Math.floor(Math.random() * 190);
+let b = Math.floor(Math.random() * 190);
   var bgColor = "rgb(" + r + "," + b + "," + g + ")";                          // variables Concatenated
   document.body.style.backgroundColor = bgColor;                              // attaches rgb color to the body element
   console.log(bgColor);
